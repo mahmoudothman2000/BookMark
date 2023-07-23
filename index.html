@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"content="">
+    <!-- Bootstrap Framework -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Added The Picture Before your page title - top website title-->
+    <link rel="icon" href="image/bookmark.png">
+    <!-- Render All Elements Normally  -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Font Awesome Library -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Main Template Css File -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Main Template  Media Responsive Css File -->
+    <link rel="stylesheet" href="css/media.css">
+    <!-- Main Font Family Files  Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>Bookmarker</title>
+  </head>
+  <body>
+
+
+
+  <div class="container position-relative">
+    <div class="box-modal rounded-5 position-absolute shadow-lg d-none" id="boxModal">
+      <div class="span">
+        <button class="btn-close ms-auto d-block" id="btnClose"></button>
+        <span class="d-inline-block rounded-circle m-1"></span>
+        <span class="d-inline-block rounded-circle m-1"></span>
+        <span class="d-inline-block rounded-circle m-1"></span>
+      </div>
+      <h3 class="mb-4">Site Name or Url is not valid, Please follow the rules below :</h3>
+      <p>  <i class="fa-solid fa-right-to-bracket"></i>  Site name must contain at least 3 characters</p>
+      <p>  <i class="fa-solid fa-right-to-bracket"></i>  Site URL must be a valid one</p>
+    </div>
+    <h1 class="text-center position-relative m-auto mt-5 display-4">Bookmarker</h1>
+    <div class="content mt-5 p-4">
+      <h2 class="text-center">Bookmark your favorite sites </h2>
+      <div class="form my-5">
+
+        <label class="siteName mb-2 mt-5 ms-2 fw-bold position-relative"  for="siteName">Site Name :</label>
+        <input type="text" oninput=" validationInputName ()"      placeholder="BookMark Mark" class="form-control" id="siteNameInput">
+
+        <label class="siteUrl mb-2 mt-5 ms-2 fw-bold position-relative"   for="siteUrl">Site URL :</label>
+        <input type="url" oninput=" validationInputUrl () " placeholder="Website URL "  class="form-control" id="siteUrlInput">
+
+        <button onclick="addUrl()"    id="btnSubmit" class="btn btn-danger m-auto d-block mt-4 w-25">Submit</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <table class="table table-hover mt-5 text-center">
+      <thead>
+        <th>Index</th>
+        <th>Website Name</th>
+        <th>Visit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody id="tBody">
+      <a href="" target="_blank"></a>
+      </tbody>
+    </table>
+  </div>
+    <script src="JS/bootstrap.bundle.min.js"></script>
+    <script src="JS/main.js"  ></script>
+  </body>
+</html>
