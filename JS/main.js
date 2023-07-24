@@ -24,7 +24,7 @@ function addUrl ()
   
     if ( checkedRepeatUrl () !== true)
     {
-      urlContainerArray.unshift( urlObject );
+      urlContainerArray.push( urlObject );
       localStorage.setItem( "urlName", JSON.stringify( urlContainerArray ) )
       displayUrl( urlContainerArray )
       clearForm ()
