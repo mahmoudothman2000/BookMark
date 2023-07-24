@@ -2,6 +2,7 @@ let siteNameInput = document.getElementById( "siteNameInput" );
 let siteUrlInput = document.getElementById( "siteUrlInput" );
 let btnSubmit = document.getElementById( "btnSubmit" );
 let btnClose = document.getElementById( "btnClose" );
+let btnCloseRep = document.getElementById( "btnCloseRep" );
 let urlContainerArray = [];
 
 
@@ -21,10 +22,19 @@ function addUrl ()
       url : siteUrlInput.value
     }
   
-    urlContainerArray.unshift( urlObject );
-    localStorage.setItem( "urlName", JSON.stringify( urlContainerArray ) )
-    displayUrl( urlContainerArray )
-    clearForm ()
+    if ( checkedRepeatUrl () !== true)
+    {
+      urlContainerArray.unshift( urlObject );
+      localStorage.setItem( "urlName", JSON.stringify( urlContainerArray ) )
+      displayUrl( urlContainerArray )
+      clearForm ()
+    }
+    else
+    {
+      // alert( "This is URL Website Repeated" )
+      document.getElementById("boxModalRepeat").classList.remove("d-none")
+    }
+    
   } else
   {
     document.getElementById("boxModal").classList.remove("d-none")
@@ -83,7 +93,6 @@ function validationInputUrl ()
 
 
 
-
 function deleteLink (index)
 {
   urlContainerArray.splice( index, 1 );
@@ -105,3 +114,52 @@ btnClose.onclick = function ()
 {
   document.getElementById( "boxModal" ).classList.add( "d-none" );
 }
+
+
+
+
+btnCloseRep.onclick = function ()
+{
+  document.getElementById( "boxModalRepeat" ).classList.add( "d-none" );
+}
+
+
+
+
+
+
+
+function checkedRepeatUrl ()
+{
+  for ( let j = 0; j < urlContainerArray.length; j++)
+  {
+    return  urlContainerArray[j].url.includes(siteUrlInput.value) 
+  }
+}
+
+
+
+
+
+
+// for ( let j = 0; j < urlContainerArray.length; j++)
+// {
+//   if (siteUrlInput.value.includes(urlContainerArray[j].url) )
+//   {
+//     alert("Dont Added ")
+//   } else
+//   {
+//     let urlObject = {
+//       name: siteNameInput.value,
+//       url : siteUrlInput.value
+//     }
+
+//     urlContainerArray.unshift( urlObject );
+//     localStorage.setItem( "urlName", JSON.stringify( urlContainerArray ) )
+//     displayUrl( urlContainerArray )
+//     clearForm ()
+//   }
+// }
+
+
+console.log("www.borg.com".includes("borg.com"));
